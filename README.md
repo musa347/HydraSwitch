@@ -98,7 +98,8 @@ Queue-based durability
 Horizontal scalability
 
 ### 5. High-Level Architecture Diagram
-![system](https://github.com/user-attachments/assets/c982931d-ceab-4bdb-87b9-cbc8e7006222)
+![HydraSwitch Architecture](Screenshot-2025-11-15-at-10.09.34.png)
+
 
 
 
