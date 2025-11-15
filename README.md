@@ -98,7 +98,9 @@ Queue-based durability
 Horizontal scalability
 
 ### 5. High-Level Architecture Diagram
-<img width="759" height="472" alt="Screenshot 2025-11-15 at 09 24 57" src="https://github.com/user-attachments/assets/e8de04ad-a73f-468d-bee0-4d3716b5eefa" />
+<img width="1017" height="641" alt="Screenshot 2025-11-15 at 10 09 34" src="https://github.com/user-attachments/assets/7ff1448e-c164-4fa9-b2fa-ff8322707a77" />
+
+
 
 
 ### 6. Implementation Guide (Step-by-Step)
