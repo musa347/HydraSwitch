@@ -11,6 +11,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
             <groupId>com.hydraswitch</groupId>
             <artifactId>core</artifactId>
             <version>${project.parent.version}</version>
