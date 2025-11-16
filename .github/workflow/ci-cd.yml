@@ -1,0 +1,63 @@
+name: Java CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/*'   # <-- all feature branches
+  pull_request:
+    branches:
+      - main
+      - 'feature/*'   # <-- run CI for PRs from/to feature branches
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout Code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set Up Java
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adoptopenjdk'
+
+      # Cache Maven Dependencies
+      - name: Cache Maven dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # Build + Run Tests
+      - name: Build with Maven
+        run: mvn clean install --no-transfer-progress
+
+  deploy:
+    # Only deploy when:
+    # - build succeeded
+    # - branch is main
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adoptopenjdk'
+
+      - name: Deploy to Production
+        run: |
+          echo "Deploying to production..."
+          # Add real deployment commands here
